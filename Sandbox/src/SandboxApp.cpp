@@ -101,7 +101,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(Hana::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Hana::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc =
 			R"(
@@ -137,15 +137,15 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(Hana::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = Hana::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(Hana::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = Hana::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_ElfTexture = Hana::Texture2D::Create("assets/textures/elf.png");
 
-		std::dynamic_pointer_cast<Hana::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Hana::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Hana::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Hana::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Hana::Timestep ts) override
@@ -188,11 +188,13 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		Hana::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Hana::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		m_ElfTexture->Bind();
-		Hana::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Hana::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		// Triangle
 		// Hana::Renderer::Submit(m_Shader, m_VertexArray);
@@ -212,11 +214,11 @@ public:
 	}
 
 private:
+	Hana::ShaderLibrary m_ShaderLibrary;
 	Hana::Ref<Hana::Shader> m_Shader;
 	Hana::Ref<Hana::VertexArray> m_VertexArray;
 
 	Hana::Ref<Hana::Shader> m_FlatColorShader;
-	Hana::Ref<Hana::Shader> m_TextureShader;
 	Hana::Ref<Hana::VertexArray> m_SquareVA;
 
 	Hana::Ref<Hana::Texture2D> m_Texture;
