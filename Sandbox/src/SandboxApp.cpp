@@ -12,8 +12,7 @@ class ExampleLayer : public Hana::Layer
 public:
 	ExampleLayer()
 		: Layer("Example")
-		, m_Camera(-1.6f, 1.6f, -0.9f, 0.9f)
-		, m_CameraPosition(0.0f)
+		, m_CameraController(1920.f / 1080.f)
 	{
 		m_VertexArray.reset(Hana::VertexArray::Create());
 
@@ -150,28 +149,14 @@ public:
 
 	void OnUpdate(Hana::Timestep ts) override
 	{
-		if (Hana::Input::IsKeyPressed(HN_KEY_A))
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-		else if (Hana::Input::IsKeyPressed(HN_KEY_D))
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
+		// Update
+		m_CameraController.OnUpdate(ts);
 
-		if (Hana::Input::IsKeyPressed(HN_KEY_W))
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
-		else if (Hana::Input::IsKeyPressed(HN_KEY_S))
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-
-		if (Hana::Input::IsKeyPressed(HN_KEY_Q))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-		else if (Hana::Input::IsKeyPressed(HN_KEY_E))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
-
+		// Render
 		Hana::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
 		Hana::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		Hana::Renderer::BeginScene(m_Camera);
+		Hana::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		static glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -209,8 +194,9 @@ public:
 		ImGui::End();
 	}
 
-	void OnEvent(Hana::Event& event) override
+	void OnEvent(Hana::Event& e) override
 	{
+		m_CameraController.OnEvent(e);
 	}
 
 private:
@@ -224,13 +210,7 @@ private:
 	Hana::Ref<Hana::Texture2D> m_Texture;
 	Hana::Ref<Hana::Texture2D> m_ElfTexture;
 
-	Hana::OrthographicCamera m_Camera;
-	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 5.0f;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
-
+	Hana::OrthographicCameraController m_CameraController;
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
 

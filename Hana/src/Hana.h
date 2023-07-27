@@ -11,6 +11,7 @@
 #include "Hana/Input.h"
 #include "Hana/KeyCodes.h"
 #include "Hana/MouseButtonCodes.h"
+#include "Hana/OrthographicCameraController.h"
 
 #include "Hana/ImGui/ImGuiLayer.h"
 
