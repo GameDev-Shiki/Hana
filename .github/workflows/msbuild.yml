@@ -20,6 +20,8 @@ env:
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Debug
 
+  PROJECT_SETUP_PATH: ./scripts
+
 permissions:
   contents: read
 
@@ -38,8 +40,8 @@ jobs:
       run: git submodule update --init --recursive
 
     - name: Run Premake5
-      working-directory: ${{ env.GITHUB_WORKSPACE }}
-      run: ./scripts/Win-GenProjects.bat
+      working-directory: ${{ env.PROJECT_SETUP_PATH }}
+      run: ./Win-GenProjects.bat
 
     - name: Restore NuGet packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
