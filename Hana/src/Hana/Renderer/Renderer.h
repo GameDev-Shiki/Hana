@@ -25,6 +25,6 @@ namespace Hana
 			glm::mat4 ViewProjectionMatrix = glm::mat4(1.0f);
 		};
 
-		static SceneData* s_SceneData;
+		static Scope<SceneData> s_SceneData;
 	};
 }
