@@ -1,7 +1,7 @@
 #include "hnpch.h"
 #include "Application.h"
 
-#include "Hana/Log.h"
+#include "Hana/Core/Log.h"
 
 #include "Hana/Renderer/Renderer.h"
 

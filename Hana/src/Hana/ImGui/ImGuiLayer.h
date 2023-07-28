@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Hana/Layer.h"
+#include "Hana/Core/Layer.h"
 
 #include "Hana/Events/ApplicationEvent.h"
 #include "Hana/Events/KeyEvent.h"

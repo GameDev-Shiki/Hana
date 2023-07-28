@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string.h>
-#include "Hana/core.h"
+#include "Hana/Core/Core.h"
 
 namespace Hana
 {

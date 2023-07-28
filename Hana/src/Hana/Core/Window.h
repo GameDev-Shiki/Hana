@@ -2,7 +2,7 @@
 
 #include "hnpch.h"
 
-#include "Hana/Core.h"
+#include "Hana/Core/Core.h"
 #include "Hana/Events/Event.h"
 
 namespace Hana

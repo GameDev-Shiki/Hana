@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Hana/Core.h"
+#include "Hana/Core/Core.h"
 #include "Hana/Core/Timestep.h"
 #include "Hana/Events/Event.h"
 

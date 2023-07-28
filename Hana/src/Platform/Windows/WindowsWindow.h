@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Hana/Window.h"
+#include "Hana/Core/Window.h"
 #include "Hana/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

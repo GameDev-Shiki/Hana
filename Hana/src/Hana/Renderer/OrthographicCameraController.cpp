@@ -1,8 +1,8 @@
 #include "hnpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Hana/Input.h"
-#include "Hana/KeyCodes.h"
+#include "Hana/Core/Input.h"
+#include "Hana/Core/KeyCodes.h"
 
 namespace Hana
 {

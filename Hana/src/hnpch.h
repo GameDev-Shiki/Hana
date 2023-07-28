@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Hana/Log.h"
+#include "Hana/Core/Log.h"
 
 #ifdef HN_PLATFORM_WINDOWS
 	#include <Windows.h>

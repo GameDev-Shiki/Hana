@@ -2,16 +2,16 @@
 
 // For use by Hana Applications
 
-#include "Hana/Application.h"
-#include "Hana/Layer.h"
-#include "Hana/Log.h"
+#include "Hana/Core/Application.h"
+#include "Hana/Core/Layer.h"
+#include "Hana/Core/Log.h"
 
 #include "Hana/Core/Timestep.h"
 
-#include "Hana/Input.h"
-#include "Hana/KeyCodes.h"
-#include "Hana/MouseButtonCodes.h"
-#include "Hana/OrthographicCameraController.h"
+#include "Hana/Core/Input.h"
+#include "Hana/Core/KeyCodes.h"
+#include "Hana/Core/MouseButtonCodes.h"
+#include "Hana/Renderer/OrthographicCameraController.h"
 
 #include "Hana/ImGui/ImGuiLayer.h"
 
@@ -28,5 +28,5 @@
 // -----------------------------------------
 
 // ---Entry Point---------------------------
-#include "Hana/EntryPoint.h"
+#include "Hana/Core/EntryPoint.h"
 // -----------------------------------------

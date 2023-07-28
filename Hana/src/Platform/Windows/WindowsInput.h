@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Hana/Input.h"
+#include "Hana/Core/Input.h"
 
 namespace Hana
 {
