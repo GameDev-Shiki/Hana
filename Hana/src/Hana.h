@@ -26,7 +26,3 @@
 
 #include "Hana/Renderer/OrthographicCamera.h"
 // -----------------------------------------
-
-// ---Entry Point---------------------------
-#include "Hana/Core/EntryPoint.h"
-// -----------------------------------------

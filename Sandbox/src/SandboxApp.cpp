@@ -1,4 +1,5 @@
 #include <Hana.h>
+#include <Hana/Core/EntryPoint.h>
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
@@ -7,6 +8,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Sandbox2D.h"
+
 class ExampleLayer : public Hana::Layer
 {
 public:
@@ -14,7 +17,7 @@ public:
 		: Layer("Example")
 		, m_CameraController(1920.f / 1080.f)
 	{
-		m_VertexArray.reset(Hana::VertexArray::Create());
+		m_VertexArray = Hana::VertexArray::Create();
 
 		float vertices[3 * 7] =
 		{
@@ -24,7 +27,7 @@ public:
 		};
 
 		Hana::Ref<Hana::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Hana::VertexBuffer::Create(vertices, sizeof(vertices)));
+		vertexBuffer = Hana::VertexBuffer::Create(vertices, sizeof(vertices));
 		Hana::BufferLayout layout =
 		{
 			{ Hana::ShaderDataType::Float3, "a_Position" },
@@ -36,10 +39,10 @@ public:
 
 		uint32_t indices[3] = { 0, 1, 2 };
 		Hana::Ref<Hana::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Hana::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		indexBuffer = Hana::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(Hana::VertexArray::Create());
+		m_SquareVA = Hana::VertexArray::Create();
 
 		float squareVertices[5 * 4] =
 		{
@@ -50,7 +53,7 @@ public:
 		};
 
 		Hana::Ref<Hana::VertexBuffer> squareVB;
-		squareVB.reset(Hana::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		squareVB = Hana::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 		squareVB->SetLayout(
 			{
 				{ Hana::ShaderDataType::Float3, "a_Position" },
@@ -60,7 +63,7 @@ public:
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 		Hana::Ref<Hana::IndexBuffer> squareIB;
-		squareIB.reset(Hana::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		squareIB = Hana::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 		std::string vertexSrc =
@@ -219,12 +222,12 @@ class Sandbox : public Hana::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox()
 	{
-
 	}
 };
 
