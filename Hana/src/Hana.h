@@ -17,6 +17,7 @@
 
 // ---Renderer------------------------------
 #include "Hana/Renderer/Renderer.h"
+#include "Hana/Renderer/Renderer2D.h"
 #include "Hana/Renderer/RenderCommand.h"
 
 #include "Hana/Renderer/Buffer.h"
