@@ -21,6 +21,8 @@ private:
 	Hana::Ref<Hana::VertexArray> m_SquareVA;
 	Hana::Ref<Hana::Shader> m_FlatColorShader;
 
+	Hana::Ref<Hana::Texture2D> m_CheckerboardTexture;
+
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 
 };
