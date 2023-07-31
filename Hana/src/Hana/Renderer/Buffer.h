@@ -33,10 +33,10 @@ namespace Hana
 		std::string Name;
 		ShaderDataType Type = ShaderDataType::None;
 		uint32_t Size = 0;
-		uint32_t Offset = 0;
+		size_t Offset = 0;
 		bool Normalized = false;
 
-		BufferElement() {}
+		BufferElement() = default;
 
 		BufferElement(ShaderDataType type, const std::string& name, bool normalized = false)
 			: Name(name)
@@ -90,7 +90,7 @@ namespace Hana
 	private:
 		void CalculateOffsetsAndStride()
 		{
-			uint32_t offset = 0;
+			size_t offset = 0;
 			m_Stride = 0;
 			for (BufferElement& element : m_Elements)
 			{
