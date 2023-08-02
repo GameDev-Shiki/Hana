@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Event.h"
+#include "Hana/Events/Event.h"
 
 namespace Hana
 {

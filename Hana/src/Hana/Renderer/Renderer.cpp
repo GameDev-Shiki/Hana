@@ -1,7 +1,6 @@
 #include "hnpch.h"
 #include "Hana/Renderer/Renderer.h"
 #include "Hana/Renderer/Renderer2D.h"
-#include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Hana
 {
