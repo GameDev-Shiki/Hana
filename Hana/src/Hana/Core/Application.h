@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core.h"
+#include "Hana/Core/Core.h"
 
-#include "Window.h"
+#include "Hana/Core/Window.h"
 #include "Hana/Core/LayerStack.h"
 #include "Hana/Events/Event.h"
 #include "Hana/Events/ApplicationEvent.h"
@@ -17,7 +17,7 @@ namespace Hana
 	{
 	public:
 		Application();
-		virtual ~Application() = default;
+		virtual ~Application();
 	
 		void Run();
 

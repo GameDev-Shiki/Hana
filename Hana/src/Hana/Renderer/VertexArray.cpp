@@ -1,7 +1,7 @@
 #include "hnpch.h"
-#include "VertexArray.h"
+#include "Hana/Renderer/VertexArray.h"
 
-#include "Renderer.h"
+#include "Hana/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLVertexArray.h"
 
 namespace Hana

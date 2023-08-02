@@ -2,6 +2,7 @@
 
 // For use by Hana Applications
 
+#include "Hana/Core/Core.h"
 #include "Hana/Core/Application.h"
 #include "Hana/Core/Layer.h"
 #include "Hana/Core/Log.h"

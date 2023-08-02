@@ -1,9 +1,7 @@
 #include <Hana.h>
 #include <Hana/Core/EntryPoint.h>
 
-#include "Platform/OpenGL/OpenGLShader.h"
-
-#include "imgui/imgui.h"
+#include <imgui/imgui.h>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -26,8 +24,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f,
 		};
 
-		Hana::Ref<Hana::VertexBuffer> vertexBuffer;
-		vertexBuffer = Hana::VertexBuffer::Create(vertices, sizeof(vertices));
+		Hana::Ref<Hana::VertexBuffer> vertexBuffer = Hana::VertexBuffer::Create(vertices, sizeof(vertices));
 		Hana::BufferLayout layout =
 		{
 			{ Hana::ShaderDataType::Float3, "a_Position" },
@@ -38,8 +35,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		Hana::Ref<Hana::IndexBuffer> indexBuffer;
-		indexBuffer = Hana::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
+		Hana::Ref<Hana::IndexBuffer> indexBuffer = Hana::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA = Hana::VertexArray::Create();
@@ -52,8 +48,7 @@ public:
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		Hana::Ref<Hana::VertexBuffer> squareVB;
-		squareVB = Hana::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
+		Hana::Ref<Hana::VertexBuffer> squareVB = Hana::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 		squareVB->SetLayout(
 			{
 				{ Hana::ShaderDataType::Float3, "a_Position" },
@@ -62,8 +57,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		Hana::Ref<Hana::IndexBuffer> squareIB;
-		squareIB = Hana::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
+		Hana::Ref<Hana::IndexBuffer> squareIB = Hana::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 		std::string vertexSrc =
@@ -146,8 +140,8 @@ public:
 		m_Texture = Hana::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_ElfTexture = Hana::Texture2D::Create("assets/textures/elf.png");
 
-		std::dynamic_pointer_cast<Hana::OpenGLShader>(textureShader)->Bind();
-		std::dynamic_pointer_cast<Hana::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
+		textureShader->Bind();
+		textureShader->SetInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Hana::Timestep ts) override
@@ -163,8 +157,8 @@ public:
 
 		static glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-		std::dynamic_pointer_cast<Hana::OpenGLShader>(m_FlatColorShader)->Bind();
-		std::dynamic_pointer_cast<Hana::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+		m_FlatColorShader->Bind();
+		m_FlatColorShader->SetFloat3("u_Color", m_SquareColor);
 
 		for (int y = 0; y < 20; ++y)
 		{ 

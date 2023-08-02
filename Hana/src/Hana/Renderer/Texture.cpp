@@ -1,7 +1,7 @@
 #include "hnpch.h"
-#include "Texture.h"
+#include "Hana/Renderer/Texture.h"
 
-#include "Renderer.h"
+#include "Hana/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLTexture.h"
 
 namespace Hana

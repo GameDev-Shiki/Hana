@@ -1,4 +1,5 @@
 #pragma once
+#include "Hana/Core/Core.h"
 
 #ifdef HN_PLATFORM_WINDOWS
 

@@ -4,7 +4,7 @@
 
 namespace Hana
 {
-	class HANA_API Input
+	class Input
 	{
 	public:
 		Input(const Input&) = delete;

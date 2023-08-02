@@ -1,16 +1,16 @@
 #pragma once
 
 #include "Hana/Core/Core.h"
-#include "Layer.h"
+#include "Hana/Core/Layer.h"
 
 #include <vector>
 
 namespace Hana
 {
-	class HANA_API LayerStack
+	class LayerStack
 	{
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);

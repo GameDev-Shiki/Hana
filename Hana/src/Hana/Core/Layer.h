@@ -6,7 +6,7 @@
 
 namespace Hana
 {
-	class HANA_API Layer
+	class Layer
 	{
 	public:
 		Layer(const std::string& name = "Layer");

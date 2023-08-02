@@ -22,7 +22,7 @@ namespace Hana
 	};
 
 	// Interface representing a desktop system based Window
-	class HANA_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
@@ -41,6 +41,6 @@ namespace Hana
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static Window* Create(const WindowProps& props = WindowProps());
+		static Scope<Window> Create(const WindowProps& props = WindowProps());
 	};
 }

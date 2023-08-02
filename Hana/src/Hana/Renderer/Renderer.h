@@ -1,9 +1,9 @@
 #pragma once
 
-#include "RenderCommand.h"
+#include "Hana/Renderer/RenderCommand.h"
 
-#include "OrthographicCamera.h"
-#include "Shader.h"
+#include "Hana/Renderer/OrthographicCamera.h"
+#include "Hana/Renderer/Shader.h"
 
 namespace Hana
 {
@@ -11,6 +11,8 @@ namespace Hana
 	{
 	public:
 		static void Init();
+		static void Shutdown();
+
 		static void OnWindowResize(uint32_t width, uint32_t height);
 
 		static void BeginScene(OrthographicCamera& camera);

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "OrthographicCamera.h"
+#include "Hana/Renderer/OrthographicCamera.h"
 
-#include "Texture.h"
+#include "Hana/Renderer/Texture.h"
 
 namespace Hana
 {

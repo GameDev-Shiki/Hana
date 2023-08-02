@@ -1,5 +1,5 @@
 #include "hnpch.h"
-#include "OrthographicCameraController.h"
+#include "Hana/Renderer/OrthographicCameraController.h"
 
 #include "Hana/Core/Input.h"
 #include "Hana/Core/KeyCodes.h"

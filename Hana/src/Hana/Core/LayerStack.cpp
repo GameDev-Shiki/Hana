@@ -1,12 +1,8 @@
 #include "hnpch.h"
-#include "LayerStack.h"
+#include "Hana/Core/LayerStack.h"
 
 namespace Hana
 {
-	LayerStack::LayerStack()
-	{
-	}
-
 	LayerStack::~LayerStack()
 	{
 		for (Layer* layer : m_Layers)

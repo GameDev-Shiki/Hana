@@ -1,7 +1,7 @@
 #include "hnpch.h"
-#include "Buffer.h"
+#include "Hana/Renderer/Buffer.h"
 
-#include "Renderer.h"
+#include "Hana/Renderer/Renderer.h"
 
 #include "Platform/OpenGL/OpenGLBuffer.h"
 
