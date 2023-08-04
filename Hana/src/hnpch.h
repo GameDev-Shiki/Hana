@@ -15,6 +15,8 @@
 
 #include "Hana/Core/Log.h"
 
+#include "Hana/Debug/Instrumentor.h"
+
 #ifdef HN_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif
