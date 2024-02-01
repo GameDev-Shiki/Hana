@@ -13,3 +13,10 @@ bin-int/
 **.nsight-gfxproj
 **.DotSettings
 **.user
+
+# Doxygen
+html
+latex
+
+# MacOS
+**/.DS_Store
