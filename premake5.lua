@@ -87,6 +87,8 @@ project "Hana"
 			"GLFW_INCLUDE_NONE",
 		}
 
+		buildoptions { "/utf-8" }
+
 	filter "configurations:Debug"
 		defines "HN_DEBUG"
 		runtime "Debug"
@@ -133,6 +135,8 @@ project "Sandbox"
 
 	filter "system:windows"
 		systemversion "latest"
+		buildoptions { "/utf-8" }
+
 
 	filter "configurations:Debug"
 		defines "HN_DEBUG"

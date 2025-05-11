@@ -20,3 +20,6 @@ latex
 
 # MacOS
 **/.DS_Store
+
+# Profiler
+**/HanaProfile-*.json
