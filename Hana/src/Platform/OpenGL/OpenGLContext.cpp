@@ -15,6 +15,8 @@ namespace Hana
 
 	void OpenGLContext::Init()
 	{
+		HN_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		HN_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -36,6 +38,8 @@ namespace Hana
 
 	void OpenGLContext::SwapBuffers()
 	{
+		HN_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);
 	}
 }
