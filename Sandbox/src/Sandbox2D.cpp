@@ -12,11 +12,14 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
+	HN_PROFILE_FUNCTION();
+
 	m_CheckerboardTexture = Hana::Texture2D::Create("assets/textures/Checkerboard.png");
 }
 
 void Sandbox2D::OnDetach()
 {
+	HN_PROFILE_FUNCTION();
 }
 
 void Sandbox2D::OnUpdate(Hana::Timestep ts)
@@ -24,10 +27,7 @@ void Sandbox2D::OnUpdate(Hana::Timestep ts)
 	HN_PROFILE_FUNCTION();
 
 	// Update
-	{
-		HN_PROFILE_SCOPE("CameraController::OnUpdate");
-		m_CameraController.OnUpdate(ts);
-	}
+	m_CameraController.OnUpdate(ts);
 
 	// Render
 	{
