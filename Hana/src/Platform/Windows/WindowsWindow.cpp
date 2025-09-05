@@ -5,6 +5,8 @@
 #include "Hana/Events/KeyEvent.h"
 #include "Hana/Events/MouseEvent.h"
 
+#include "Hana/Renderer/Renderer.h"
+
 #include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Hana
@@ -55,6 +57,10 @@ namespace Hana
 
 		{
 			HN_PROFILE_SCOPE("glfwCreateWindow");
+			#if defined(HN_DEBUG)
+				if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
+					glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
+			#endif
 			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 			++s_GLFWWindowCount;
 		}
